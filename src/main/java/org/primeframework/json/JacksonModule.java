@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, Inversoft Inc., All Rights Reserved
+ * Copyright (c) 2015-2016, Inversoft Inc., All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,10 +29,10 @@ import java.util.Locale;
  *
  * @author Brian Pontarelli
  */
-public class InversoftJacksonModule extends SimpleModule {
+public class JacksonModule extends SimpleModule {
   private static final Version VERSION = VersionUtil.parseVersion("0.22", "org.primeframework.mvc", "prime-jackson-module");
 
-  public InversoftJacksonModule() {
+  public JacksonModule() {
     super(VERSION);
 
     // Deserializers
