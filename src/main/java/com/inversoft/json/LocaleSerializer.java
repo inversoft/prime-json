@@ -15,13 +15,13 @@
  */
 package com.inversoft.json;
 
+import java.io.IOException;
+import java.util.Locale;
+
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdScalarSerializer;
-
-import java.io.IOException;
-import java.util.Locale;
 
 /**
  * Locale Jackson's serializer.

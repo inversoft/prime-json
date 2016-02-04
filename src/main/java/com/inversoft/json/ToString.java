@@ -25,12 +25,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 public class ToString {
   private final static ObjectMapper objectMapper = new ObjectMapper();
 
-  static {
-    objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true)
-        .configure(SerializationFeature.WRITE_NULL_MAP_VALUES, true)
-        .registerModule(new JacksonModule());
-  }
-
   /**
    * A not-pretty printed JSON string. Returns a portable JSON string.
    *
@@ -57,5 +51,11 @@ public class ToString {
     } catch (JsonProcessingException e) {
       throw new RuntimeException(e);
     }
+  }
+
+  static {
+    objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true)
+                .configure(SerializationFeature.WRITE_NULL_MAP_VALUES, true)
+                .registerModule(new JacksonModule());
   }
 }

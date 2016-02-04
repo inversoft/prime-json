@@ -15,14 +15,14 @@
  */
 package com.inversoft.json;
 
-import com.fasterxml.jackson.core.Version;
-import com.fasterxml.jackson.core.util.VersionUtil;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Locale;
+
+import com.fasterxml.jackson.core.Version;
+import com.fasterxml.jackson.core.util.VersionUtil;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 
 /**
  * Prime's Jackson module. Binds the Locale serializer/deserializer.
