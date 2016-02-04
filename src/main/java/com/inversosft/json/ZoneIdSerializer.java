@@ -13,33 +13,22 @@
  * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package org.primeframework.json;
+package com.inversosft.json;
 
-import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.ser.std.StdScalarSerializer;
 
 import java.io.IOException;
-import java.util.Locale;
+import java.time.ZoneId;
 
 /**
- * Locale Jackson's serializer.
- *
- * @author Brian Pontarelli
+ * @author Seth Musselman
  */
-public class LocaleSerializer extends StdScalarSerializer<Locale> {
-  public LocaleSerializer() {
-    super(Locale.class);
-  }
-
+public class ZoneIdSerializer extends JsonSerializer<ZoneId> {
   @Override
-  public void serialize(Locale value, JsonGenerator jgen, SerializerProvider provider)
-      throws IOException, JsonGenerationException {
-    if (value == null) {
-      jgen.writeNull();
-    } else {
-      jgen.writeString(value.toString());
-    }
+  public void serialize(ZoneId value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+    jgen.writeObject(value.toString());
   }
 }

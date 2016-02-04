@@ -13,22 +13,16 @@
  * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package org.primeframework.json;
+package com.inversosft.json;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
-
-import java.io.IOException;
-import java.time.ZoneId;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
 
 /**
- * @author Seth Musselman
+ * Marker interface used on empty constructors required for use by Jackson.
+ *
+ * @author Brian Pontarelli
  */
-public class ZoneIdSerializer extends JsonSerializer<ZoneId> {
-  @Override
-  public void serialize(ZoneId value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-    jgen.writeObject(value.toString());
-  }
+@Target(ElementType.CONSTRUCTOR)
+public @interface JacksonConstructor {
 }

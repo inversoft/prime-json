@@ -13,12 +13,12 @@
  * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package org.primeframework.json;
+package com.inversosft.json;
 
-import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -26,9 +26,9 @@ import java.time.LocalDate;
 /**
  * @author Seth Musselman
  */
-public class LocalDateDeserializer extends JsonDeserializer<LocalDate> {
+public class LocalDateSerializer extends JsonSerializer<LocalDate> {
   @Override
-  public LocalDate deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-    return LocalDate.parse(jp.getText());
+  public void serialize(LocalDate value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+    jgen.writeObject(value.toString());
   }
 }

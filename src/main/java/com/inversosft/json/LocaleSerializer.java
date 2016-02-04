@@ -13,7 +13,7 @@
  * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package org.primeframework.json;
+package com.inversosft.json;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -21,24 +21,25 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdScalarSerializer;
 
 import java.io.IOException;
-import java.time.ZonedDateTime;
+import java.util.Locale;
 
 /**
- * Jackson serializer for the ZonedDateTime class.
+ * Locale Jackson's serializer.
  *
  * @author Brian Pontarelli
  */
-public class ZonedDateTimeSerializer extends StdScalarSerializer<ZonedDateTime> {
-  public ZonedDateTimeSerializer() {
-    super(ZonedDateTime.class);
+public class LocaleSerializer extends StdScalarSerializer<Locale> {
+  public LocaleSerializer() {
+    super(Locale.class);
   }
 
   @Override
-  public void serialize(ZonedDateTime value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonGenerationException {
+  public void serialize(Locale value, JsonGenerator jgen, SerializerProvider provider)
+      throws IOException, JsonGenerationException {
     if (value == null) {
       jgen.writeNull();
     } else {
-      jgen.writeNumber(value.toInstant().toEpochMilli());
+      jgen.writeString(value.toString());
     }
   }
 }
