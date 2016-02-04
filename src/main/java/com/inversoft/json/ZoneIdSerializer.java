@@ -13,11 +13,12 @@
  * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package com.inversosft.json;
+package com.inversoft.json;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
 
 import java.io.IOException;
 import java.time.ZoneId;
@@ -25,9 +26,9 @@ import java.time.ZoneId;
 /**
  * @author Seth Musselman
  */
-public class ZoneIdDeserializer extends JsonDeserializer<ZoneId> {
+public class ZoneIdSerializer extends JsonSerializer<ZoneId> {
   @Override
-  public ZoneId deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
-    return ZoneId.of(jp.getText());
+  public void serialize(ZoneId value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+    jgen.writeObject(value.toString());
   }
 }

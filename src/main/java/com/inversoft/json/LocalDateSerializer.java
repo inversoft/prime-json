@@ -13,16 +13,22 @@
  * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package com.inversosft.json;
+package com.inversoft.json;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Target;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+
+import java.io.IOException;
+import java.time.LocalDate;
 
 /**
- * Marker interface used on empty constructors required for use by Jackson.
- *
- * @author Brian Pontarelli
+ * @author Seth Musselman
  */
-@Target(ElementType.CONSTRUCTOR)
-public @interface JacksonConstructor {
+public class LocalDateSerializer extends JsonSerializer<LocalDate> {
+  @Override
+  public void serialize(LocalDate value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+    jgen.writeObject(value.toString());
+  }
 }
