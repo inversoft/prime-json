@@ -1,4 +1,4 @@
-## Java JSON ![semver 2.0.0 compliant](http://img.shields.io/badge/semver-2.0.0-brightgreen.svg?style=flat-square)
+## Inversoft Jackson Extensions ![semver 2.0.0 compliant](http://img.shields.io/badge/semver-2.0.0-brightgreen.svg?style=flat-square)
 Inversoft Jackson Guice module and serializers / de-serializers.
 
 **Note:** This project uses the Savant build tool. To compile using using Savant, follow these instructions:
