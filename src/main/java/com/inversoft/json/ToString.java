@@ -56,6 +56,7 @@ public class ToString {
   static {
     objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true)
                 .configure(SerializationFeature.WRITE_NULL_MAP_VALUES, true)
+                .configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true)
                 .registerModule(new JacksonModule());
   }
 }
