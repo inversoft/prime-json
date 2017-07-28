@@ -11,7 +11,7 @@
 
   <name>Inversoft Jackson Serializers and Deserializers</name>
   <description>A set of Jackson serializers and deserializers used in Inversoft CleanSpeak and Inversoft Passport</description>
-  <url>https://www.inversoft.org</url>
+  <url>http://www.inversoft.org</url>
 
   <developers>
     <developer>
