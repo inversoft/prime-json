@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2016, Inversoft Inc., All Rights Reserved
+ * Copyright (c) 2015-2017, Inversoft Inc., All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,8 +36,8 @@ public class ToString {
   /**
    * A not-pretty printed JSON string. Returns a portable JSON string.
    *
-   * @param o
-   * @return
+   * @param o the object to serialize
+   * @return a string representation of the object.
    */
   public static String toJSONString(Object o) {
     try {
@@ -50,8 +50,8 @@ public class ToString {
   /**
    * A pretty printed JSON string suitable for use in a {@link Object#toString()} override used for debug.
    *
-   * @param o
-   * @return
+   * @param o the object to serialize
+   * @return a string representation of the object.
    */
   public static String toString(Object o) {
     try {
