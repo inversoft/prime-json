@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2016, Inversoft Inc., All Rights Reserved
+ * Copyright (c) 2015-2017, Inversoft Inc., All Rights Reserved
  */
 savantVersion = "1.0.0"
 
@@ -17,6 +17,7 @@ project(group: "com.inversoft", name: "jackson5", version: "2.4.1", licenses: ["
       dependency(id: "com.fasterxml.jackson.core:jackson-core:2.8.8")
       dependency(id: "com.fasterxml.jackson.core:jackson-databind:2.8.8")
       dependency(id: "com.fasterxml.jackson.core:jackson-annotations:2.8.8")
+      dependency(id: "com.google.inject:guice:4.0.0")
       dependency(id: "org.slf4j:slf4j-api:1.7.7")
     }
     group(name: "test-compile", export: false) {

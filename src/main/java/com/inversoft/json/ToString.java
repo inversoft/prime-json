@@ -15,9 +15,13 @@
  */
 package com.inversoft.json;
 
+import java.util.Set;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.google.inject.Inject;
 
 /**
  * @author Brian Pontarelli
@@ -31,6 +35,13 @@ public class ToString {
                 .configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true)
                 .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false) //Ignores wrappers like javassist
                 .registerModule(new JacksonModule());
+  }
+
+  @Inject
+  public static void setJacksonModules(Set<Module> jacksonModules) {
+    if (jacksonModules.size() > 0) {
+      objectMapper.registerModules(jacksonModules);
+    }
   }
 
   /**
