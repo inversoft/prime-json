@@ -3,7 +3,7 @@
  */
 savantVersion = "1.0.0"
 
-project(group: "com.inversoft", name: "jackson5", version: "2.4.4", licenses: ["ApacheV2_0"]) {
+project(group: "com.inversoft", name: "jackson5", version: "2.4.5", licenses: ["ApacheV2_0"]) {
   workflow {
     standard()
   }
@@ -14,10 +14,10 @@ project(group: "com.inversoft", name: "jackson5", version: "2.4.4", licenses: ["
 
   dependencies {
     group(name: "compile") {
-      dependency(id: "com.fasterxml.jackson.core:jackson-core:2.9.9")
-      dependency(id: "com.fasterxml.jackson.core:jackson-databind:2.9.9")
-      dependency(id: "com.fasterxml.jackson.core:jackson-annotations:2.9.9")
-      dependency(id: "com.google.inject:guice:4.2.0")
+      dependency(id: "com.fasterxml.jackson.core:jackson-core:2.10.1")
+      dependency(id: "com.fasterxml.jackson.core:jackson-databind:2.10.1")
+      dependency(id: "com.fasterxml.jackson.core:jackson-annotations:2.10.1")
+      dependency(id: "com.google.inject:guice:4.2.2")
       dependency(id: "org.slf4j:slf4j-api:1.7.7")
     }
     group(name: "test-compile", export: false) {
@@ -75,7 +75,7 @@ target(name: "idea", description: "Updates the IntelliJ IDEA module file") {
   idea.iml()
 }
 
-target(name: "mvn-deploy", description: "Publish to MVN repo", dependsOn: ["clean", "compile"]) {
+target(name: "publish", description: "Publish to MVN repo", dependsOn: ["clean", "test"]) {
   if (new ProcessBuilder('mvn', 'deploy', '-Prelease').inheritIO().start().waitFor() != 0) {
     fail("deploy failed")
   }
